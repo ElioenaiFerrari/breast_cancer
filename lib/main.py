@@ -37,10 +37,14 @@ model.add(
     )
 )
 
-optimizer = keras.optimizers.Adam()
+optimizer = keras.optimizers.Adam(
+    lr=0.001,
+    decay=0.0001,
+    clipvalue=0.5
+)
 
 model.compile(
-    optimizer='adam',
+    optimizer=optimizer,
     loss='binary_crossentropy',
     metrics=['binary_accuracy']
 )
